@@ -1,0 +1,9 @@
+version: '3'
+services:
+    webbkoll:
+        build: .
+        environment:
+            - BACKEND_HOST=<WEBBKOLL_BACKEND_HOST>
+            - BACKEND_PORT=<WEBBKOLL_BACKEND_PORT>
+        ports:
+            - 4000:4000
