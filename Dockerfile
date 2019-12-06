@@ -23,7 +23,9 @@ RUN mix local.hex --force && \
     /sassc/sassc/bin/sassc --style compressed assets/scss/style.scss priv/static/css/app.css && \
     cat assets/static/js/* > priv/static/js/webbkoll.js && \
     rsync -av assets/static/*  priv/static && \
-    MIX_ENV=prod mix phx.digest
+    MIX_ENV=prod mix phx.digest && \
+    sed -i 's#rate_limit_host: %{"scale" => 60_000, "limit" => .*},#rate_limit_host: %{"scale" => 60_000, "limit" => 1000},#' config/prod.exs && \
+    sed -i 's#rate_limit_client: %{"scale" => 60_000, "limit" => .*},#rate_limit_client: %{"scale" => 60_000, "limit" => 1000},#' config/prod.exs
 
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
