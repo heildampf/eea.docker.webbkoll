@@ -7,3 +7,5 @@ services:
             - BACKEND_PORT=<WEBBKOLL_BACKEND_PORT>
         ports:
             - 4000:4000
+
+
