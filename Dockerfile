@@ -11,7 +11,7 @@ RUN mkdir -p /sassc && cd /sassc && \
 RUN apt update
 RUN apt install rsync -y
 
-RUN git clone https://github.com/andersju/webbkoll.git
+RUN git clone https://github.com/heildampf/webbkoll.git
 
 WORKDIR /webbkoll
 
